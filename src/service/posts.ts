@@ -18,3 +18,14 @@ export async function getFeaturedPosts(): Promise<Post[]> {
     .then<Post[]>(JSON.parse)
     .then((posts) => posts.filter((post) => post.featured));
 }
+
+export async function getPost(id: string): Promise<string> {
+  const filePath = path.join(
+    process.cwd(),
+    "data",
+    "react-markdown",
+    "sample.md"
+  );
+  const data = await fs.readFile(filePath, "utf8");
+  return data;
+}
