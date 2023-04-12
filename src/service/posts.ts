@@ -14,6 +14,8 @@ export type Post = {
 
 export type PostData = Post & {
   content: string;
+  prev: Post | null;
+  next: Post | null;
 };
 
 export async function getFeaturedPosts(): Promise<Post[]> {
@@ -38,5 +40,9 @@ export async function getPost(id: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), "data/posts", post.filePath);
   const content = await readFile(filePath, "utf-8");
 
-  return { ...post, content };
+  const index = posts.indexOf(post);
+  const prev = index > 0 ? posts[index - 1] : null;
+  const next = index < posts.length ? posts[index + 1] : null;
+
+  return { ...post, content, prev, next };
 }
