@@ -6,6 +6,7 @@ import { materialOceanic } from "react-syntax-highlighter/dist/esm/styles/prism"
 import remarkGfm from "remark-gfm";
 
 export default function MarkdownViewer({ content }: { content: string }) {
+  content = content.replaceAll("<br>", "");
   return (
     <ReactMarkdown
       className="prose lg:prose-xl"
