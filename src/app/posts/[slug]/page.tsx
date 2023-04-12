@@ -1,3 +1,4 @@
+import AdjacentPostCard from "@/components/AdjacentPostCard";
 import PostContent from "@/components/PostContent";
 import { getPost } from "@/service/posts";
 import Image from "next/image";
@@ -10,7 +11,8 @@ type Props = {
 
 export default async function PostPage({ params: { slug } }: Props) {
   const post = await getPost(slug);
-  const { title, imageUrl } = post;
+  const { title, imageUrl, prev, next } = post;
+  console.log(prev, next);
   return (
     <article className="overflow-hidden rounded-2xl m-4 bg-gray-100">
       <Image
@@ -21,6 +23,10 @@ export default async function PostPage({ params: { slug } }: Props) {
         height={400}
       />
       <PostContent post={post} />
+      <section className="flex">
+        {prev && <AdjacentPostCard post={prev} type="prev" />}
+        {next && <AdjacentPostCard post={next} type="next" />}
+      </section>
     </article>
   );
 }
