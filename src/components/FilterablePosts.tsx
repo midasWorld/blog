@@ -4,6 +4,7 @@ import { Post } from "@/service/posts";
 import Categories from "./Categories";
 import PostCard from "./PostCard";
 import { useState } from "react";
+import PostsGrid from "./PostsGrid";
 
 type Props = {
   categories: string[];
@@ -21,13 +22,7 @@ export default function FilterablePosts({ categories, posts }: Props) {
 
   return (
     <section className="flex m-4">
-      <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {filtered.map((post) => (
-          <li key={post.id}>
-            <PostCard post={post} />
-          </li>
-        ))}
-      </ul>
+      <PostsGrid posts={filtered} />
       <Categories
         categories={[ALL_POSTS, ...categories]}
         selected={selected}
