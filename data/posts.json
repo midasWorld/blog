@@ -6,7 +6,8 @@
     "date": "2022-10-06",
     "category": "network",
     "imageUrl": "https://res.cloudinary.com/dt893owxo/image/upload/v1680922405/blog/http_vs_https_jcjftz.jpg",
-    "featured": true
+    "featured": true,
+    "filePath": "http-vs-https.md"
   },
   {
     "id": "2",
@@ -15,7 +16,8 @@
     "date": "2022-10-11",
     "category": "backend",
     "imageUrl": "https://res.cloudinary.com/dt893owxo/image/upload/v1680922492/blog/cookie_vs_session_rydqbh.jpg",
-    "featured": true
+    "featured": true,
+    "filePath": "cookie-vs-session.md"
   },
   {
     "id": "3",
@@ -24,7 +26,8 @@
     "date": "2022-10-12",
     "category": "cs",
     "imageUrl": "https://res.cloudinary.com/dt893owxo/image/upload/v1680922405/blog/cicd_ezw38m.jpg",
-    "featured": true
+    "featured": true,
+    "filePath": "ci-cd.md"
   },
   {
     "id": "4",
@@ -33,7 +36,8 @@
     "date": "2022-10-17",
     "category": "network",
     "imageUrl": "https://res.cloudinary.com/dt893owxo/image/upload/v1680922404/blog/TCP_vs_UDP_rkupcq.jpg",
-    "featured": true
+    "featured": true,
+    "filePath": "tcp-vs-udp.md"
   },
   {
     "id": "5",
@@ -42,6 +46,7 @@
     "date": "2022-11-22",
     "category": "cs",
     "imageUrl": "https://res.cloudinary.com/dt893owxo/image/upload/v1680922785/blog/blocking_vs_non_blocking_j7juxs.jpg",
-    "featured": true
+    "featured": true,
+    "filePath": "blocking-vs-non-blocking.md"
   }
 ]
