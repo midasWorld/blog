@@ -8,7 +8,9 @@ export default async function FeaturedPosts() {
       <h2 className="font-bold text-2xl mb-2">Featured Posts</h2>
       <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <li key={post.id}>
+            <PostCard post={post} />
+          </li>
         ))}
       </ul>
     </section>
