@@ -1,5 +1,5 @@
 import path from "path";
-import { promises as fs } from "fs";
+import { readFile } from "fs/promises";
 
 export type Post = {
   id: string;
@@ -12,20 +12,12 @@ export type Post = {
 };
 
 export async function getFeaturedPosts(): Promise<Post[]> {
-  const filePath = path.join(process.cwd(), "data", "posts.json");
-  return await fs
-    .readFile(filePath, "utf-8")
-    .then<Post[]>(JSON.parse)
+  return getPosts() //
     .then((posts) => posts.filter((post) => post.featured));
 }
 
-export async function getPost(id: string): Promise<string> {
-  const filePath = path.join(
-    process.cwd(),
-    "data",
-    "react-markdown",
-    "sample.md"
-  );
-  const data = await fs.readFile(filePath, "utf8");
-  return data;
+export async function getPosts(): Promise<Post[]> {
+  const filePath = path.join(process.cwd(), "data", "posts.json");
+  return readFile(filePath, "utf-8") //
+    .then<Post[]>(JSON.parse);
 }
