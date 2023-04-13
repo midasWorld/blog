@@ -7,8 +7,11 @@ import Footer from "@/components/Footer";
 const sans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Midas's Blog",
-  description: "개발 관련 글을 작성하는 곳입니다.",
+  title: {
+    default: "Midas's Blog",
+    template: "Midas's Blog | %s",
+  },
+  description: "서버 개발자 Midas's 블로그",
   icons: {
     icon: "/favicon.svg",
   },

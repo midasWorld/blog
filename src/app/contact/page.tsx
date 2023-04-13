@@ -1,6 +1,12 @@
 import ContactForm from "@/components/ContactForm";
+import { Metadata } from "next";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiVelog } from "react-icons/si";
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description: "Midas에게 메일 보내기",
+};
 
 const LINKS = [
   { icon: <BsGithub />, url: "https://github.com/midasWorld" },
