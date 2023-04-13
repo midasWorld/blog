@@ -1,5 +1,6 @@
 import path from "path";
 import { readFile } from "fs/promises";
+import { cache } from "react";
 
 export type Post = {
   id: string;
@@ -23,11 +24,11 @@ export async function getFeaturedPosts(): Promise<Post[]> {
     .then((posts) => posts.filter((post) => post.featured));
 }
 
-export async function getPosts(): Promise<Post[]> {
+export const getPosts = cache(async () => {
   const filePath = path.join(process.cwd(), "data", "posts.json");
   return readFile(filePath, "utf-8") //
     .then<Post[]>(JSON.parse);
-}
+});
 
 export async function getPost(id: string): Promise<PostData> {
   const posts = await getPosts();
