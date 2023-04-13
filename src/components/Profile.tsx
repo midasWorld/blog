@@ -11,6 +11,7 @@ export default function Profile() {
         alt="Profile"
         width={200}
         height={200}
+        priority
       />
       <h2 className="text-2xl font-bold mt-2">{"Hi, I'm Midas"}</h2>
       <h3 className="text-lg font-semibold">Back-end engineer</h3>

@@ -2,7 +2,6 @@
 
 import { Post } from "@/service/posts";
 import Categories from "./Categories";
-import PostCard from "./PostCard";
 import { useState } from "react";
 import PostsGrid from "./PostsGrid";
 
