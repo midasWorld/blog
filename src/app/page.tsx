@@ -2,7 +2,7 @@ import CarouselPosts from "@/components/CarouselPosts";
 import FeaturedPosts from "@/components/FeaturedPosts";
 import Profile from "@/components/Profile";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Profile />
