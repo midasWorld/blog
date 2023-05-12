@@ -2,6 +2,7 @@
 
 import { ClientSafeProvider, signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
+import Button from "./ui/Button";
 
 type Props = {
   providers: Record<string, ClientSafeProvider>;
@@ -21,14 +22,12 @@ export default function SignIn({ providers, callbackUrl }: Props) {
   return (
     <>
       {Object.values(providers).map(({ name, id }) => (
-        <button
-          className="inline-flex items-center justify-center py-3 px-6 rounded-md text-white text-lg font-medium bg-slate-900 hover:bg-slate-800 active:scale-95"
+        <Button
           key={id}
+          icon={getProviderIcon(name)}
+          text={`Sign In with ${name}`}
           onClick={() => signIn(id, { callbackUrl })}
-        >
-          {getProviderIcon(name)}
-          Sign In with {name}
-        </button>
+        />
       ))}
     </>
   );
