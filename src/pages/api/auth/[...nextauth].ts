@@ -1,4 +1,5 @@
 import { prisma } from "@/db/prisma";
+import { isAdmin } from "@/service/user";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
@@ -11,6 +12,7 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: "/auth/signin",
+    error: "/auth/error",
   },
   providers: [
     GoogleProvider({
@@ -18,6 +20,14 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_SECRET || "",
     }),
   ],
+  callbacks: {
+    async signIn({ user: { email } }) {
+      if (!email) {
+        return false;
+      }
+      return isAdmin(email);
+    },
+  },
 };
 
 export default NextAuth(authOptions);
